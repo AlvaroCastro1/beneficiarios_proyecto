@@ -76,7 +76,7 @@ public class Iniciar_sesion extends javax.swing.JFrame {
         jLabel1.setText("Usuario:");
 
         btn_password.setBackground(new java.awt.Color(255, 255, 255));
-        btn_password.setIcon(new javax.swing.ImageIcon("src/com/mycompany/beneficiarios/imagenes/ocultar.png")); // NOI18N
+        btn_password.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/beneficiarios/imagenes/mostrar.png"))); // NOI18N
         btn_password.setBorder(null);
         btn_password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +131,7 @@ public class Iniciar_sesion extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -165,9 +165,7 @@ public class Iniciar_sesion extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -178,10 +176,10 @@ public class Iniciar_sesion extends javax.swing.JFrame {
         if (btn_password.isSelected()) {
             txt_password.setEchoChar((char) 0);
             
-            ImageIcon iconOcultar = new ImageIcon("src/main/java/com/mycompany/beneficiarios/imagenes/ocultar.png");
+            ImageIcon iconOcultar = new ImageIcon("src\\com\\mycompany\\beneficiarios\\imagenes\\ocultar.png");
             btn_password.setIcon(iconOcultar);
         } else {
-            ImageIcon iconMostrar = new ImageIcon("src/main/java/com/mycompany/beneficiarios/imagenes/mostrar.png");
+            ImageIcon iconMostrar = new ImageIcon("src\\com\\mycompany\\beneficiarios\\imagenes\\mostrar.png");
             btn_password.setIcon(iconMostrar);
             txt_password.setEchoChar('*');
         }
