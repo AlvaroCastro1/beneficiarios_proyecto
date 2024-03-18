@@ -80,7 +80,8 @@ public class Menu extends javax.swing.JFrame {
         lb_usuario.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         lb_usuario.setText("Bienvenido, !");
 
-        ayuda_menu.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/beneficiarios/imagenes/ayuda.png"));
+        ayuda_menu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/beneficiarios/imagenes/ayuda.png")));
+        
         ayuda_menu.setToolTipText("Seleccione una acción a realizar en este menú.");
         ayuda_menu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 

@@ -225,51 +225,51 @@ public class Crear extends javax.swing.JFrame {
         lb_anverso.setForeground(new java.awt.Color(255, 255, 0));
         lb_anverso.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        ayuda_nombre.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/beneficiarios/imagenes/ayuda.png")); // NOI18N
+        ayuda_nombre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/beneficiarios/imagenes/ayuda.png"))); // NOI18N
         ayuda_nombre.setToolTipText(" Introduce el nombre completo tal como aparece en el documento de identidad. Ejemplo: Juan Pérez López");
         ayuda_nombre.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        ayuda_f_nac.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/beneficiarios/imagenes/ayuda.png")); // NOI18N
+        ayuda_f_nac.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/beneficiarios/imagenes/ayuda.png"))); // NOI18N
         ayuda_f_nac.setToolTipText("Introduce la fecha de nacimiento en el calendario desplegable. Ejemplo: 1 ene 1990");
         ayuda_f_nac.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        ayuda_direccion.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/beneficiarios/imagenes/ayuda.png")); // NOI18N
+        ayuda_direccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/beneficiarios/imagenes/ayuda.png"))); // NOI18N
         ayuda_direccion.setToolTipText("Introduce la dirección completa, incluyendo calle, número, colonia, ciudad y estado. ");
         ayuda_direccion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        ayuda_cp.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/beneficiarios/imagenes/ayuda.png")); // NOI18N
+        ayuda_cp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/beneficiarios/imagenes/ayuda.png"))); // NOI18N
         ayuda_cp.setToolTipText(" Introduce el código postal de la dirección. Ejemplo: 12345");
         ayuda_cp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        ayuda_curp.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/beneficiarios/imagenes/ayuda.png")); // NOI18N
+        ayuda_curp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/beneficiarios/imagenes/ayuda.png"))); // NOI18N
         ayuda_curp.setToolTipText(" Introduce el CURP, clave alfanumérica única de 18 dígitos. Ejemplo: AAAA000101HDFXXX01");
         ayuda_curp.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        ayuda_elector.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/beneficiarios/imagenes/ayuda.png")); // NOI18N
+        ayuda_elector.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/beneficiarios/imagenes/ayuda.png"))); // NOI18N
         ayuda_elector.setToolTipText("Introduce la clave de elector, que se encuentra en la credencial de elector, 18 dígitos.");
         ayuda_elector.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        ayuda_ocr.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/beneficiarios/imagenes/ayuda.png")); // NOI18N
+        ayuda_ocr.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/beneficiarios/imagenes/ayuda.png"))); // NOI18N
         ayuda_ocr.setToolTipText(" Introduce el OCR (Optical Character Recognition). 13 números");
         ayuda_ocr.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        ayuda_vigencia.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/beneficiarios/imagenes/ayuda.png")); // NOI18N
+        ayuda_vigencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/beneficiarios/imagenes/ayuda.png"))); // NOI18N
         ayuda_vigencia.setToolTipText("Seleccione la fecha de  vencimiento del INE en el calendario desplegable. Ejemplo: 1 ene 2030.");
         ayuda_vigencia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        ayuda_fotos.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/beneficiarios/imagenes/ayuda.png")); // NOI18N
+        ayuda_fotos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/beneficiarios/imagenes/ayuda.png"))); // NOI18N
         ayuda_fotos.setToolTipText("Seleccione en cada campo la imagen que corresponde. \\nIMPORTANTE: Solo se aceptan formatos jpg, png, jpeg");
         ayuda_fotos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        ayuda_correo.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/beneficiarios/imagenes/ayuda.png")); // NOI18N
+        ayuda_correo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/beneficiarios/imagenes/ayuda.png"))); // NOI18N
         ayuda_correo.setToolTipText("Introduce la dirección de correo electrónico y confirmalo en esta campo. Ejemplo: ejemplo@correo.com");
         ayuda_correo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        ayuda_facebook.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/beneficiarios/imagenes/ayuda.png")); // NOI18N
+        ayuda_facebook.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/beneficiarios/imagenes/ayuda.png"))); // NOI18N
         ayuda_facebook.setToolTipText("Introduce el nombre de usuario de Facebook, Se puede dejar en blanco. Ejemplo: ejemplo.usuario");
         ayuda_facebook.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        ayuda_instagram.setIcon(new javax.swing.ImageIcon("src/main/java/com/mycompany/beneficiarios/imagenes/ayuda.png")); // NOI18N
+        ayuda_instagram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/beneficiarios/imagenes/ayuda.png"))); // NOI18N
         ayuda_instagram.setToolTipText("Introduce el nombre de usuario de Instagram, Se puede dejar en blanco. Ejemplo: ejemplo_usuario");
         ayuda_instagram.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
