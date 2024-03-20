@@ -19,10 +19,10 @@ public class generarPDF {
 
     public static void main(String[] args) {
         generarPDF p = new generarPDF();
-        p.crearReporte(1, "John Doe", "123 Main St", "12345", "ABCDE", "1234567890", "OCR123", "2024-03-19", "john@example.com", "", "");
+        p.crearReporte(1, "John Doe", "2024.03.12", "123 Main St", "12345", "ABCDE", "1234567890", "OCR123", "2024-03-19", "john@example.com", "", "");
     }
     
-    public void crearReporte(int id, String nombre, String direccion, String cp, String curp, String claveElector,
+    public void crearReporte(int id, String nombre, String fechanacimiento, String direccion, String cp, String curp, String claveElector,
                               String ocr, String vigenciaINE, String correo, String facebook, String instagram) {
         // Creación de un objeto de documento
         Document document = new Document();
@@ -61,6 +61,7 @@ public class generarPDF {
             String infoText =
                     "ID: " + id + "\n" +
                             "Nombre: " + nombre + "\n" +
+                            "Fecha nacimiento: " + fechanacimiento + "\n" +
                             "Dirección: " + direccion + "\n" +
                             "Código Postal: " + cp + "\n" +
                             "CURP: " + curp + "\n" +

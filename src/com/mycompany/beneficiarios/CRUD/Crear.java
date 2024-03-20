@@ -6,6 +6,7 @@ package com.mycompany.beneficiarios.CRUD;
 
 import com.mycompany.beneficiarios.ConexionBD;
 import com.mycompany.beneficiarios.Menu;
+import com.mycompany.beneficiarios.reporte.generarPDF;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
@@ -25,6 +26,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import java.sql.ResultSet;
 
 /**
  *
@@ -34,6 +36,7 @@ public class Crear extends javax.swing.JFrame {
 
     private File archivoAnverso, archivoInverso;
     private String usuario;
+
     /**
      * Creates new form Crear
      */
@@ -41,8 +44,8 @@ public class Crear extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         initComponents();
     }
-    
-    public void setUsuario(String usuario){
+
+    public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
 
@@ -505,13 +508,16 @@ public class Crear extends javax.swing.JFrame {
 
     private void btn_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_guardarActionPerformed
         if (validarFechaNacimiento() && validarVigenciaINE() && validarMayorEdad() && validarCurp() && validarCorreo() && validarOCR() && validarImagenesSeleccionadas() && validarClaveElector()) {
+            PreparedStatement statement = null;
             try {
                 // Obtener una conexión a la base de datos
                 Connection conexion = ConexionBD.obtenerConexion();
 
                 // Preparar la consulta para insertar los datos del beneficiario
                 String consulta = "INSERT INTO Beneficiarios (nombre_completo, fecha_nacimiento, direccion, codigo_postal, curp, clave_elector, ocr, vigencia_ine, correo_electronico, facebook, instagram, imagen_anverso_ine, imagen_reverso_ine) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                PreparedStatement pstmt = conexion.prepareStatement(consulta);
+
+                // Especificar que queremos las claves generadas
+                PreparedStatement pstmt = conexion.prepareStatement(consulta, statement.RETURN_GENERATED_KEYS);
 
                 // Establecer los parámetros de la consulta
                 pstmt.setString(1, txt_nombre.getText());
@@ -537,11 +543,24 @@ public class Crear extends javax.swing.JFrame {
                 // Ejecutar la consulta para insertar los datos en la base de datos
                 pstmt.executeUpdate();
 
+                // Obtener las claves generadas
+                ResultSet generatedKeys = pstmt.getGeneratedKeys();
+                if (generatedKeys.next()) {
+                    int idGenerado = generatedKeys.getInt(1);
+                    generarPDF p = new generarPDF();
+                String fn = new java.sql.Date(txt_nacimiento.getDate().getTime()).toString();
+                String fv = new java.sql.Date(txt_vigenciaINE.getDate().getTime()).toString();
+
+                p.crearReporte(idGenerado, txt_nombre.getText(), fn, txt_direccion.getText(), txt_cp.getText(), txt_curp.getText(), txt_clave_elector.getText(),
+                         txt_OCR.getText(), fv, txt_correo.getText(), txt_facebook.getText(), txt_instagram.getText());
+                } else {
+                    JOptionPane.showMessageDialog(null, "Los datos del beneficiario se han guardado correctamente. No se pudo obtener el ID generado.");
+                }
+                
                 // Cerrar la conexión y liberar recursos
                 pstmt.close();
                 conexion.close();
 
-                JOptionPane.showMessageDialog(null, "Los datos del beneficiario se han guardado correctamente.");
                 clear();
             } catch (SQLException ex) {
                 ex.printStackTrace();
@@ -549,6 +568,7 @@ public class Crear extends javax.swing.JFrame {
             } catch (IOException ex) {
                 Logger.getLogger(Crear.class.getName()).log(Level.SEVERE, null, ex);
             }
+
         }
     }//GEN-LAST:event_btn_guardarActionPerformed
 
@@ -757,13 +777,13 @@ public class Crear extends javax.swing.JFrame {
     public boolean validarCurp() {
         String curp = txt_curp.getText().trim();
 
-        String regex =
-                "[A-Z]{1}[AEIOU]{1}[A-Z]{2}[0-9]{2}" +
-                        "(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])" +
-                        "[HM]{1}" +
-                        "(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)" +
-                        "[B-DF-HJ-NP-TV-Z]{3}" +
-                        "[0-9A-Z]{1}[0-9]{1}$";
+        String regex
+                = "[A-Z]{1}[AEIOU]{1}[A-Z]{2}[0-9]{2}"
+                + "(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])"
+                + "[HM]{1}"
+                + "(AS|BC|BS|CC|CS|CH|CL|CM|DF|DG|GT|GR|HG|JC|MC|MN|MS|NT|NL|OC|PL|QT|QR|SP|SL|SR|TC|TS|TL|VZ|YN|ZS|NE)"
+                + "[B-DF-HJ-NP-TV-Z]{3}"
+                + "[0-9A-Z]{1}[0-9]{1}$";
 
         Pattern patron = Pattern.compile(regex);
         if (!patron.matcher(curp).matches()) {
@@ -774,7 +794,7 @@ public class Crear extends javax.swing.JFrame {
 
         }
     }
-    
+
     private boolean validarCorreo() {
         String correo = txt_correo.getText().trim();
         String correoConfirm = txt_correoConfirm.getText().trim();
