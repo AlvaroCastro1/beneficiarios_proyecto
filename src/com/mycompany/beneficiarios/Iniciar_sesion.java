@@ -5,7 +5,6 @@
 package com.mycompany.beneficiarios;
 
 import java.awt.Container;
-import javax.swing.ImageIcon;
 
 /**
  *
